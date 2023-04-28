@@ -13,9 +13,8 @@
             ],
             "program": "${workspaceFolder}\\cli.mjs",
             "args": [
-                "echo",
                 "-e", ".env",
-                "-e", "../.env",
+                "echo $TEST",
             ]
         }
     ]
