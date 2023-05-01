@@ -1,8 +1,9 @@
 {
   "name": "jj-run",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "",
-  "main": "cli.mjs",
+  "main": "index.mjs",
+  "type":"module",
   "bin": {
     "jj-run": "./cli.mjs"
   },
@@ -10,9 +11,7 @@
     "test": "npm run test-cli && npm run test-cli-override",
     "test-cli": "node ./cli.mjs",
     "test-cli-override": "node ./cli.mjs --world ABC",
-    "start": "node index.js",
-    "init": "jj-envset TEST \"Hello World\"",
-    "jjtest": "echo $TEST"
+    "start": "node index.mjs"
   },
   "keywords": [],
   "author": "JJ Bussert",
@@ -22,8 +21,5 @@
     "dotenv-cli": "^7.2.1",
     "npm-run-path": "^5.1.0",
     "yargs": "^17.7.2"
-  },
-  "devDependencies": {
-    "jj-envset": "^1.0.6"
   }
 }
