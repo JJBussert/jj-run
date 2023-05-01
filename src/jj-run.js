@@ -30,10 +30,4 @@ function run(cmd, envFile, workingDirectory = process.cwd()) {
   return subprocess.stdout.toString().trim();
 }
 
-const isMainModule = import.meta.url === new URL(import.meta.url).pathname;
-  
-if (isMainModule) {
-  run();
-}
-
 export { run };

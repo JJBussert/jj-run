@@ -2,22 +2,24 @@
   "name": "jj-run",
   "version": "1.0.4",
   "description": "",
-  "main": "index.mjs",
-  "type":"module",
+  "main": "cli.js",
+  "type": "module",
   "bin": {
-    "jj-run": "./cli.mjs"
+    "jj-run": "./cli.js"
   },
   "scripts": {
-    "test": "npm run test-cli && npm run test-cli-override",
-    "test-cli": "node ./cli.mjs",
-    "test-cli-override": "node ./cli.mjs --world ABC",
-    "start": "node index.mjs"
+    "test": "npm run test-cli",
+    "test-cli": "npm link . && jj-run && npm unlink .",
+    "start": "node index.js",
+    "release-patch": "npm version patch && git push --follow-tags && npm publish",
+    "release-minor": "npm version minor && git push --follow-tags && npm publish",
+    "release-major": "npm version major && git push --follow-tags && npm publish"
   },
   "keywords": [],
   "author": "JJ Bussert",
   "license": "MIT",
   "dependencies": {
-    "cross-var": "^1.1.0",
+    "cross-var-no-babel": "^1.2.0",
     "dotenv-cli": "^7.2.1",
     "npm-run-path": "^5.1.0",
     "yargs": "^17.7.2"
