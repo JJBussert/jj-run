@@ -8,9 +8,8 @@
     "jj-run": "./cli.js"
   },
   "scripts": {
-    "test": "npm run test-cli",
+    "test": "vitest",
     "test-cli": "npm link . && jj-run && npm unlink .",
-    "start": "node index.js",
     "release-patch": "npm version patch && git push --follow-tags && npm publish",
     "release-minor": "npm version minor && git push --follow-tags && npm publish",
     "release-major": "npm version major && git push --follow-tags && npm publish"
@@ -23,5 +22,8 @@
     "dotenv-cli": "^7.2.1",
     "npm-run-path": "^5.1.0",
     "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "vitest": "^0.30.1"
   }
 }

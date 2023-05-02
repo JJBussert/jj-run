@@ -1,9 +1,7 @@
-// index.mjs
-
 import { spawnSync } from 'child_process';
 import { npmRunPathEnv } from 'npm-run-path';
 
-function run(cmd, envFile, workingDirectory = process.cwd()) {
+function run(cmd, envFile, verbose = false, workingDirectory = process.cwd()) {
   const dotenvCliCommand = `dotenv -e ${envFile} --`;
   const crossVarCommand = `cross-var ${cmd}`;
   const combinedCommand = `${dotenvCliCommand} ${crossVarCommand}`;
@@ -27,7 +25,13 @@ function run(cmd, envFile, workingDirectory = process.cwd()) {
   }
 
   // Return the output as a string
-  return subprocess.stdout.toString().trim();
+  const output = subprocess.stdout.toString().trim();
+
+  if(verbose) {
+    console.log(output);
+  }
+
+  return output;
 }
 
 export { run };

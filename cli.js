@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 
-// cli.mjs
-
 import yargs from 'yargs/yargs';
 import { hideBin } from 'yargs/helpers';
 import { run } from './src/jj-run.js';
@@ -13,9 +11,15 @@ const argv = yargs(hideBin(process.argv))
     default: '.env',
     describe: 'Path to the .env file'
   })
+  .option('v', {
+    alias: 'verbose',
+    type: 'boolean',
+    default: 'false',
+    describe: 'Verbose console output'
+  })
   .demandCommand(1, 'You must provide a command to run')
   .argv;
 
 const cmd = argv._.join(' ');
 
-run(cmd, argv.env);
+run(cmd, argv.env, argv.verbose);
