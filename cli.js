@@ -2,7 +2,7 @@
 
 import yargs from 'yargs/yargs';
 import { hideBin } from 'yargs/helpers';
-import { run } from './src/jj-run.js';
+import { run } from './src/index.js';
 
 const argv = yargs(hideBin(process.argv))
   .option('e', {
